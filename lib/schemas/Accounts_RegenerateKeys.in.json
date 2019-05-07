@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "accountName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Whether the operation refers to the primary or secondary key.",
+            "properties": {
+                "keyType": {
+                    "description": "Whether the operation refers to the primary or secondary key.",
+                    "enum": [
+                        "primary",
+                        "secondary"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "KeyType"
+                    }
+                }
+            },
+            "required": [
+                "keyType"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

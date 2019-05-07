@@ -1,0 +1,60 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "accountName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Parameters used to create a new Maps Account.",
+            "properties": {
+                "location": {
+                    "description": "The location of the resource.",
+                    "type": "string"
+                },
+                "sku": {
+                    "description": "The SKU of this account.",
+                    "properties": {
+                        "name": {
+                            "description": "The name of the SKU, in standard format (such as S0).",
+                            "type": "string"
+                        },
+                        "tier": {
+                            "description": "Gets the sku tier. This is based on the SKU name.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name"
+                    ],
+                    "type": "object"
+                },
+                "tags": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "location",
+                "sku"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

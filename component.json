@@ -1,0 +1,220 @@
+{
+    "title": "Azure Maps Resource Provider",
+    "description": "Resource Provider",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/maps-maps-management/2018-05-01/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Accounts_ListOperations": {
+            "main": "./lib/actions/Accounts_ListOperations.js",
+            "title": "List operations available for the Maps Resource Provider",
+            "description": "List operations available for the Maps Resource Provider",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_ListOperations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_ListBySubscription": {
+            "main": "./lib/actions/Accounts_ListBySubscription.js",
+            "title": "Get all Maps Accounts in a Subscription",
+            "description": "Get all Maps Accounts in a Subscription",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_ListBySubscription.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_Move": {
+            "main": "./lib/actions/Accounts_Move.js",
+            "title": "Moves Maps Accounts from one ResourceGroup (or Subscription) to another",
+            "description": "Moves Maps Accounts from one ResourceGroup (or Subscription) to another",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_Move.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_ListByResourceGroup": {
+            "main": "./lib/actions/Accounts_ListByResourceGroup.js",
+            "title": "Get all Maps Accounts in a Resource Group",
+            "description": "Get all Maps Accounts in a Resource Group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_ListByResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_Delete": {
+            "main": "./lib/actions/Accounts_Delete.js",
+            "title": "Delete a Maps Account.",
+            "description": "Delete a Maps Account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_Get": {
+            "main": "./lib/actions/Accounts_Get.js",
+            "title": "Get a Maps Account.",
+            "description": "Get a Maps Account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_Update": {
+            "main": "./lib/actions/Accounts_Update.js",
+            "title": "Updates a Maps Account. Only a subset of the parameters may be updated after creation, such as Sku and Tags.",
+            "description": "Updates a Maps Account. Only a subset of the parameters may be updated after creation, such as Sku and Tags.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_CreateOrUpdate": {
+            "main": "./lib/actions/Accounts_CreateOrUpdate.js",
+            "title": "Create or update a Maps Account. A Maps Account holds the keys which allow access to the Maps REST APIs.",
+            "description": "Create or update a Maps Account. A Maps Account holds the keys which allow access to the Maps REST APIs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_ListKeys": {
+            "main": "./lib/actions/Accounts_ListKeys.js",
+            "title": "Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.",
+            "description": "Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_ListKeys.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_RegenerateKeys": {
+            "main": "./lib/actions/Accounts_RegenerateKeys.js",
+            "title": "Regenerate either the primary or secondary key for use with the Maps APIs. The old key will stop working immediately.",
+            "description": "Regenerate either the primary or secondary key for use with the Maps APIs. The old key will stop working immediately.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_RegenerateKeys.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

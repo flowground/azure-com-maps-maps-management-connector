@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The description of what resources to move between resource groups.",
+            "properties": {
+                "resourceIds": {
+                    "description": "A list of resource names to move from the source resource group.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "targetResourceGroup": {
+                    "description": "The name of the destination resource group.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "targetResourceGroup",
+                "resourceIds"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
